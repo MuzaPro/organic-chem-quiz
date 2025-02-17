@@ -24,7 +24,7 @@ This game helps students learn organic chemistry through:
 ### Installation
 1. Clone the repository:
 ```bash
-git clone https://github.com/[your-username]/organic-chemistry-quiz.git
+git clone https://github.com/MuzaPro/organic-chemistry-quiz.git
 ```
 2. Open Godot Engine
 3. Select "Import Project"
@@ -64,7 +64,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👥 Authors
 
-- [Your Name/Studio Name] - *Initial work*
+- [Muza Productions] - *Initial work*
 
 ## 🙏 Acknowledgments
 
