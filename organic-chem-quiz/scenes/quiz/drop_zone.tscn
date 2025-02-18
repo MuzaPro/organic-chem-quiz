@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://l0vjd5uehdj7"]
+
+[ext_resource type="Texture2D" uid="uid://nyblob10h0el" path="res://assets/images/drop-zone-dashed.png" id="1_8fto8"]
+[ext_resource type="Script" path="res://scripts/drop_zone.gd" id="1_p10td"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bba5a"]
+size = Vector2(169, 166)
+
+[node name="DropZone" type="Node2D"]
+script = ExtResource("1_p10td")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4125, 0.4125)
+texture = ExtResource("1_8fto8")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_bba5a")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
