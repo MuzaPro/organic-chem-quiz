@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://utpdalufxmfj"]
+
+[ext_resource type="Script" path="res://scripts/molecule_bank_manager.gd" id="1_a1tw3"]
+[ext_resource type="PackedScene" uid="uid://c0dw3qjwsjl17" path="res://scenes/quiz/DraggableMolecule.tscn" id="2_17jpi"]
+
+[node name="Main" type="Node2D"]
+
+[node name="MoleculeBank" type="Node2D" parent="."]
+script = ExtResource("1_a1tw3")
+
+[node name="Card" parent="MoleculeBank" instance=ExtResource("2_17jpi")]
+position = Vector2(204, 154)
+
+[node name="Card2" parent="MoleculeBank" instance=ExtResource("2_17jpi")]
+position = Vector2(472, 159)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+offset_right = 41.0
+offset_bottom = 54.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
+layout_mode = 2
+
+[node name="Question" type="Label" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="placeholder_1" type="Panel" parent="UI/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Plus" type="Label" parent="UI/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "+"
+
+[node name="placeholder_2" type="Panel" parent="UI/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Arrow" type="Label" parent="UI/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "->"
+
+[node name="product" type="Panel" parent="UI/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="answer_bank" type="Panel" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="UI/MarginContainer/VBoxContainer/answer_bank"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

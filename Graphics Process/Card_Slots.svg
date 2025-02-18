@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1920"
+   height="1080"
+   viewBox="0 0 1920 1080"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   sodipodi:docname="Card_Slots.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     inkscape:zoom="0.52552083"
+     inkscape:cx="895.30228"
+     inkscape:cy="510.9217"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:none;fill-opacity:0.85316;stroke:#393939;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:36, 36;stroke-dashoffset:7.8;stroke-opacity:1"
+       id="rect1"
+       width="275.91675"
+       height="275.91675"
+       x="418.63232"
+       y="302.85861"
+       ry="45.66898" />
+    <rect
+       style="fill:none;fill-opacity:0.85316;stroke:#393939;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:18, 18;stroke-dashoffset:7.8;stroke-opacity:1"
+       id="rect1-4"
+       width="275.91675"
+       height="275.91675"
+       x="735.828"
+       y="302.85861"
+       ry="45.66898" />
+    <rect
+       style="fill:none;fill-opacity:0.85316;stroke:#393939;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:12, 12;stroke-dashoffset:7.8;stroke-opacity:1"
+       id="rect1-4-8"
+       width="275.91675"
+       height="275.91675"
+       x="1053.0287"
+       y="302.85925"
+       ry="45.66898" />
+  </g>
+</svg>

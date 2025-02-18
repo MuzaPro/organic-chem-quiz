@@ -7,6 +7,7 @@ extends Node2D
 var card_being_dragged
 var screen_size
 const COLLISION_MASK_CARD = 1
+var is_hovering_on_card
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -31,6 +32,28 @@ func _input(event: InputEvent) -> void:
 				card_being_dragged = card
 		else :
 			card_being_dragged = null
+
+func connect_card_signals(card):
+	card.connect("hovered", on_hovered_over_card)
+	card.connect("hovered_off", on_hovered_off_card)
+
+func on_hovered_over_card(card):
+	highlight_card(card,true)
+
+func on_hovered_off_card(card):
+	highlight_card(card, false)
+
+
+
+func highlight_card(card, hovered):   # hovered is a boolean 
+	if hovered:
+		card.scale = Vector2(1.05,1.05)
+		card.z_index = 2
+	else:
+		card.scale = Vector2(1.00,1.00)
+		card.z_index = 1
+
+
 
 
 func _raycast_check_for_card():
