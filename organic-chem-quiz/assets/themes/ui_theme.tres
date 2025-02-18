@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dbqx1dlhmd641"]
+
+[ext_resource type="StyleBox" uid="uid://bkd17yvv62oh0" path="res://assets/themes/chem_style_box_flat.tres" id="1_ut0cl"]
+
+[resource]
+PanelContainer/styles/panel = ExtResource("1_ut0cl")
