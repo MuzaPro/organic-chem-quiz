@@ -10,10 +10,10 @@
 script = ExtResource("1_a1tw3")
 
 [node name="Card" parent="MoleculeBank" instance=ExtResource("2_17jpi")]
-position = Vector2(481, 423)
+position = Vector2(329, 482)
 
 [node name="Card2" parent="MoleculeBank" instance=ExtResource("2_17jpi")]
-position = Vector2(779, 424)
+position = Vector2(700, 482)
 
 [node name="DropZone" parent="." groups=["drop_zones"] instance=ExtResource("3_4gx64")]
 position = Vector2(211, 173)
