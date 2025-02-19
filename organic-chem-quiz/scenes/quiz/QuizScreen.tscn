@@ -1,10 +1,42 @@
-[gd_scene load_steps=4 format=3 uid="uid://utpdalufxmfj"]
+[gd_scene load_steps=7 format=3 uid="uid://utpdalufxmfj"]
 
 [ext_resource type="Script" path="res://scripts/molecule_bank_manager.gd" id="1_a1tw3"]
+[ext_resource type="Script" path="res://scripts/quiz_screen.gd" id="1_gso6n"]
 [ext_resource type="PackedScene" uid="uid://c0dw3qjwsjl17" path="res://scenes/quiz/DraggableMolecule.tscn" id="2_17jpi"]
 [ext_resource type="PackedScene" uid="uid://l0vjd5uehdj7" path="res://scenes/quiz/drop_zone.tscn" id="3_4gx64"]
 
+[sub_resource type="Gradient" id="Gradient_tnn65"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8w1j3"]
+gradient = SubResource("Gradient_tnn65")
+width = 1152
+height = 659
+
 [node name="Main" type="Node2D"]
+script = ExtResource("1_gso6n")
+
+[node name="Design" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CenterContainer" type="CenterContainer" parent="Design"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -12.0
+offset_right = 1116.0
+offset_bottom = 610.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Design/CenterContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_8w1j3")
 
 [node name="MoleculeBank" type="Node2D" parent="."]
 script = ExtResource("1_a1tw3")
