@@ -1,0 +1,83 @@
+[gd_scene load_steps=6 format=3 uid="uid://vcv4j73vcf8x"]
+
+[ext_resource type="Script" path="res://Scenes/quiz_screen.gd" id="1_jfs78"]
+[ext_resource type="Texture2D" uid="uid://c6o7btby06ird" path="res://Assets/UI/drop-zone-dashed.png" id="3_1rxpl"]
+[ext_resource type="Script" path="res://Scenes/drop_zone.gd" id="3_kwo5w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1cdvq"]
+size = Vector2(123.75, 129)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyvc3"]
+size = Vector2(126, 129)
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="QuizScreen" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_jfs78")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/QuizScreen"]
+layout_mode = 0
+offset_left = 45.0
+offset_right = 908.0
+offset_bottom = 197.0
+
+[node name="ReagentBank" type="HBoxContainer" parent="CanvasLayer/QuizScreen"]
+custom_minimum_size = Vector2(400, 150)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 54.0
+offset_right = 760.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 200
+alignment = 1
+
+[node name="ReactionArea" type="Control" parent="CanvasLayer/QuizScreen"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DropZoneLeft" type="Area2D" parent="CanvasLayer/QuizScreen/ReactionArea"]
+position = Vector2(397, 431)
+collision_layer = 2
+script = ExtResource("3_kwo5w")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/QuizScreen/ReactionArea/DropZoneLeft"]
+offset_right = 125.0
+offset_bottom = 125.0
+texture = ExtResource("3_1rxpl")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/QuizScreen/ReactionArea/DropZoneLeft"]
+position = Vector2(63.125, 61.5)
+shape = SubResource("RectangleShape2D_1cdvq")
+
+[node name="DropZoneRight" type="Area2D" parent="CanvasLayer/QuizScreen/ReactionArea"]
+position = Vector2(672, 433)
+collision_layer = 2
+script = ExtResource("3_kwo5w")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/QuizScreen/ReactionArea/DropZoneRight"]
+offset_right = 126.0
+offset_bottom = 126.0
+texture = ExtResource("3_1rxpl")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/QuizScreen/ReactionArea/DropZoneRight"]
+position = Vector2(64, 62.5)
+shape = SubResource("RectangleShape2D_tyvc3")

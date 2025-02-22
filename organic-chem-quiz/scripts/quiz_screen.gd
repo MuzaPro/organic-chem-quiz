@@ -1,3 +1,5 @@
+# Quiz Screen script
+
 extends Node2D
 
 const DraggableMolecule = preload("res://scenes//quiz/DraggableMolecule.tscn")

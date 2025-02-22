@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://h4dq8u7wipxl"]
+
+[ext_resource type="Script" path="res://Card/reagent_card.gd" id="1_s0mor"]
+[ext_resource type="Script" path="res://Card/States/idle_reagent_state.gd" id="1_w382s"]
+[ext_resource type="Texture2D" uid="uid://c8ao5f3gwhl1b" path="res://Card/Reagents/acetone.svg" id="2_7h6um"]
+[ext_resource type="Script" path="res://Card/reagent_card_state_machine.gd" id="2_pqhi1"]
+[ext_resource type="Script" path="res://Card/States/hover_reagent_state.gd" id="4_bjhj5"]
+[ext_resource type="Script" path="res://Card/States/drag_reagent_state.gd" id="5_hkure"]
+[ext_resource type="Script" path="res://Card/States/release_reagent_state.gd" id="6_7ujd2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pr647"]
+size = Vector2(188, 187.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6yxs"]
+size = Vector2(187, 187)
+
+[node name="ReagentCard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s0mor")
+
+[node name="Sprite" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 188.0
+offset_bottom = 188.0
+texture = ExtResource("2_7h6um")
+expand_mode = 1
+
+[node name="ReagentCardStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_pqhi1")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="ReagentCardStateMachine" node_paths=PackedStringArray("card")]
+script = ExtResource("1_w382s")
+card = NodePath("../..")
+
+[node name="Hover" type="Node" parent="ReagentCardStateMachine" node_paths=PackedStringArray("card")]
+script = ExtResource("4_bjhj5")
+card = NodePath("../..")
+
+[node name="Drag" type="Node" parent="ReagentCardStateMachine" node_paths=PackedStringArray("card")]
+script = ExtResource("5_hkure")
+card = NodePath("../..")
+
+[node name="Release" type="Node" parent="ReagentCardStateMachine" node_paths=PackedStringArray("card")]
+script = ExtResource("6_7ujd2")
+card = NodePath("../..")
+
+[node name="DropZoneDetector" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropZoneDetector"]
+position = Vector2(94, 94.25)
+shape = SubResource("RectangleShape2D_pr647")
+
+[node name="CardsDetector" type="Area2D" parent="."]
+position = Vector2(53, 54)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardsDetector"]
+position = Vector2(41.5, 40.5)
+shape = SubResource("RectangleShape2D_x6yxs")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
