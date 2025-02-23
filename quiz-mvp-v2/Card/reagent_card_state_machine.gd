@@ -37,10 +37,12 @@ func on_mouse_exited():
 		current_state.on_mouse_exited()
 
 func on_child_transition(new_state_name: String):
+	print("Attempting transition to state: ", new_state_name)
 	var new_state = states.get(new_state_name.to_lower())
 	if !new_state:
+		print("Failed to find state: ", new_state_name)
 		return
-	
+	print("Found state: ", new_state.name)
 	if current_state:
 		current_state._exit()
 	

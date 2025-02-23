@@ -73,5 +73,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Thanks to the open-source community
 
 ---
-
+complete documentation of the process can be found in the live Google Doc:
+https://docs.google.com/document/d/1u7a4n3ASYB7CVN3ALA11nU4dpnbdyUrN9qzgGd7z_VI/edit?usp=sharing
 *Note: This project is under active development. Features and documentation will be updated regularly.*

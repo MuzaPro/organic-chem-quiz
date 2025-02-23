@@ -1,7 +1,8 @@
 # ====================================
 # SCRIPT: States/release_reagent_state.gd
-# ATTACH TO: Release state node (child of ReagentCardStateMachine)
+# ATTACH TO: Release state node
 # ====================================
+
 extends ReagentCardState
 
 func _enter():
@@ -10,21 +11,27 @@ func _enter():
 	print("Found drop zones: ", drop_zones)
 	
 	if drop_zones.is_empty():
-		print("No drop zones found")
-		_return_to_starting_position()
+		_return_to_bank()
 	else:
-		print("Attempting to use drop zone: ", drop_zones[0])
-		var drop_zone = drop_zones[0]
-		if drop_zone.can_accept_card():
-			drop_zone.accept_card(card)
-			card.current_drop_zone = drop_zone
+		var valid_zones = drop_zones.filter(func(zone): return zone.has_method("can_accept_card"))
+		if valid_zones.is_empty():
+			_return_to_bank()
 		else:
-			_return_to_starting_position()
+			var drop_zone = valid_zones[0]
+			if drop_zone.can_accept_card():
+				drop_zone.accept_card(card)
+				card.current_drop_zone = drop_zone
+			else:
+				_return_to_bank()
 	
 	transitioned.emit("idle")
 
-func _return_to_starting_position():
-	card.position = card.starting_position
+func _return_to_bank():
+	# Get reference to ReagentBank
+	var reagent_bank = get_tree().get_first_node_in_group("reagent_bank")
+	if reagent_bank:
+		reagent_bank.return_card_starting_position(card)
+	
 	if card.current_drop_zone:
 		card.current_drop_zone.remove_card()
 		card.current_drop_zone = null

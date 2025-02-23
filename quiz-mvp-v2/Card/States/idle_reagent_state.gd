@@ -9,6 +9,9 @@ func _enter():
 	card.modulate = Color.WHITE
 	card.pivot_offset = Vector2.ZERO
 
+func _exit():
+	print("Exiting IDLE state")
+
 func on_mouse_entered():
 	print("IDLE state received mouse enter")
 	transitioned.emit("hover")

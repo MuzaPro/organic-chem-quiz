@@ -16,5 +16,11 @@ func on_input(event: InputEvent):
 		card.global_position = card.get_global_mouse_position() - card.pivot_offset
 	
 	if event.is_action_released("mouse_left"):
+		print("Mouse released in DRAG state")
 		get_viewport().set_input_as_handled()
 		transitioned.emit("release")
+func on_mouse_entered():
+	pass
+
+func on_mouse_exited():
+	pass

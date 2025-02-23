@@ -30,7 +30,7 @@ extends Control
 
 var molecule_data: Dictionary = {}
 var current_drop_zone = null
-
+var home_bank = null  # Reference to original bank
 
 func _ready():
 	# Store initial position for returning when drag is cancelled

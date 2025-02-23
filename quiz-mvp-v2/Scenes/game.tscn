@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://vcv4j73vcf8x"]
+[gd_scene load_steps=7 format=3 uid="uid://vcv4j73vcf8x"]
 
 [ext_resource type="Script" path="res://Scenes/quiz_screen.gd" id="1_jfs78"]
+[ext_resource type="Script" path="res://Scenes/reagent_bank.gd" id="2_b86dn"]
 [ext_resource type="Texture2D" uid="uid://c6o7btby06ird" path="res://Assets/UI/drop-zone-dashed.png" id="3_1rxpl"]
 [ext_resource type="Script" path="res://Scenes/drop_zone.gd" id="3_kwo5w"]
 
@@ -23,8 +24,10 @@ grow_vertical = 2
 [node name="QuizScreen" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 44.0
+offset_top = 57.0
+offset_right = 1101.0
+offset_bottom = 585.0
 script = ExtResource("1_jfs78")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/QuizScreen"]
@@ -33,19 +36,20 @@ offset_left = 45.0
 offset_right = 908.0
 offset_bottom = 197.0
 
-[node name="ReagentBank" type="HBoxContainer" parent="CanvasLayer/QuizScreen"]
+[node name="ReagentBank" type="HBoxContainer" parent="CanvasLayer/QuizScreen" groups=["reagent_bank"]]
 custom_minimum_size = Vector2(400, 150)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 54.0
-offset_right = 760.0
-offset_bottom = 110.0
+offset_left = 47.0
+offset_right = -244.0
+offset_bottom = -449.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 200
 alignment = 1
+script = ExtResource("2_b86dn")
 
 [node name="ReactionArea" type="Control" parent="CanvasLayer/QuizScreen"]
 anchors_preset = 0
@@ -53,7 +57,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="DropZoneLeft" type="Area2D" parent="CanvasLayer/QuizScreen/ReactionArea"]
-position = Vector2(397, 431)
+position = Vector2(187, 382)
 collision_layer = 2
 script = ExtResource("3_kwo5w")
 
@@ -68,7 +72,7 @@ position = Vector2(63.125, 61.5)
 shape = SubResource("RectangleShape2D_1cdvq")
 
 [node name="DropZoneRight" type="Area2D" parent="CanvasLayer/QuizScreen/ReactionArea"]
-position = Vector2(672, 433)
+position = Vector2(656, 371)
 collision_layer = 2
 script = ExtResource("3_kwo5w")
 

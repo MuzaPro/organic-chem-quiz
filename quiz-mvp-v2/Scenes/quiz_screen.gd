@@ -33,15 +33,21 @@ func _ready():
 	add_to_group("quiz_screen")
 
 func setup_current_question():
+	print("Setting up quiz question")
+	
 	# Clear existing reagents if any
 	for child in reagent_bank.get_children():
 		child.queue_free()
 	
-	# Create new reagent cards
-	var spacing = 120  # Adjust based on your card size
-	var start_x = 100  # Starting x position
+	# Configure the reagent bank
+	reagent_bank.custom_minimum_size = Vector2(400, 150)
+	reagent_bank.mouse_filter = Control.MOUSE_FILTER_PASS
+	reagent_bank.alignment = BoxContainer.ALIGNMENT_CENTER
+	reagent_bank.add_theme_constant_override("separation", 20)
 	
-	for i in range(molecule_data.size()):
+	# Create new reagent cards
+	for molecule in molecule_data:
 		var reagent = preload("res://Card/reagent_card.tscn").instantiate()
 		reagent_bank.add_child(reagent)
-		reagent.configure(molecule_data[i])
+		reagent.custom_minimum_size = Vector2(100, 100)
+		reagent.configure(molecule)
