@@ -55,10 +55,11 @@ func configure(data: Dictionary):
 		_ready()
 
 func _input(event):
+	print("Card _input: ", name, " parent: ", get_parent().name) # Debugging
 	state_machine.on_input(event)
 
 func _on_gui_input(event):
-	# print("Card received gui_input: ", event)
+	print("Card _on_gui_input: ", name, " parent: ", get_parent().name)
 	state_machine.on_gui_input(event)
 
 func _on_mouse_entered():

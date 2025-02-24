@@ -30,6 +30,10 @@ func _return_to_bank():
 	# Get reference to ReagentBank
 	var reagent_bank = get_tree().get_first_node_in_group("reagent_bank")
 	if reagent_bank:
+		# Check if the card has a parent that might be a drop zone
+		if card.get_parent() is Area2D:
+			card.get_parent().remove_child(card)
+		
 		reagent_bank.return_card_starting_position(card)
 	
 	if card.current_drop_zone:
